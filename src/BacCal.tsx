@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import { Form, Button, Row, Col } from 'react-bootstrap';
 import {calculateBac, getResult, gramsInBlood} from "./BL.ts";
 import {FormControlLabel, Paper, Radio, RadioGroup, TextField} from "@mui/material";
 import Swal from 'sweetalert2'
@@ -16,10 +16,10 @@ function BACCalculator() {
         const [w, setW] = useState(weight);
         const [g, setG] = useState(gender);
 
-        const wChange = (event) => {
+        const wChange = (event: any) => {
             setW(event.target.value);
         };
-        const GenderChange = (event) => {
+        const GenderChange = (event: any) => {
             setG(event.target.value);
         };
         return(<>
@@ -65,8 +65,8 @@ function BACCalculator() {
         const [d, setD] = useState([
             { liters: null, alkPercentage: null}
         ]);
-        const change = (index, event) => {
-            const newDrinks = [...d];
+        const change = (index: number, event: any) => {
+            const newDrinks: any = [...d];
             newDrinks[index][event.target.name] = event.target.value;
             setD(newDrinks);
         }
@@ -131,8 +131,7 @@ function BACCalculator() {
                             return ;
                         }
                     }
-                    console.log('this is ',d);
-                    setDrinks(d);
+                    setDrinks(d as any);
                     setStage(3);
                     calculate(d);
                 }} variant="contained">Next</Button>
@@ -163,13 +162,13 @@ function BACCalculator() {
         }
     }
 
-    const calculate = (dd) => {
+    const calculate = (dd: any) => {
         let grams: number = 0;
         for (let i = 0; i < dd.length; i++) {
             grams= grams + gramsInBlood(Number(dd[i].liters),Number( dd[i].alkPercentage));
         }
 
-        const bac = calculateBac(gender === "male",grams,  weight);
+        const bac = calculateBac(gender === "male",grams,  weight as any);
         setResult(getResult(bac));
     };
 

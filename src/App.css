@@ -6,7 +6,7 @@ body{
           rgba(0, 0, 0, 0.3) 10px,
           rgba(0, 0, 0, 0.3) 20px
   ),
-  url(http://s3-us-west-2.amazonaws.com/s.cdpn.io/3/old_map_@2X.png);
+  url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/old_map_@2X.png);
 }
 #root {
   max-width: 1280px;

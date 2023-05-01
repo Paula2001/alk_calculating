@@ -1,12 +1,9 @@
-import { useState } from 'react'
 import BACCal from "./BacCal.tsx";
 import './App.css'
 import { Container } from 'react-bootstrap';
 import {Paper} from "@mui/material";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <Container>
         <BACCal />
